@@ -1,0 +1,7 @@
+_build
+env/
+.env
+.venv
+.databricks/
+.github/
+.vscode/
