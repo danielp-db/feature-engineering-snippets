@@ -23,8 +23,8 @@ fe_client = fe.FeatureEngineeringClient()
 catalog = "daniel_perez"
 schema = "feature_engineering_tests"
 
-input_table_name=f"{catalog}.{schema}.ride_requests"
-output_table_name=f"{catalog}.{schema}.hourly_ride_requests"
+input_table_name=f"{catalog}.{schema}.stock_transactions_event_source"
+output_table_name=f"{catalog}.{schema}.live_trading_stats"
 output_checkpoint_dir=f"/Volumes/{catalog}/{schema}/volume/checkpoints"
 
 lookup_key=["request_id"]
@@ -206,6 +206,12 @@ training_df.display()
 
 # COMMAND ----------
 
+mlflow.autolog()
+
+from sklearn
+
+# COMMAND ----------
+
 pd_df = training_df.toPandas()
 X, y = pd_df.drop(label, axis=1), pd_df[label]
 clf = RandomForestClassifier(max_depth=2, random_state=0)
@@ -284,7 +290,9 @@ batch_preds.display()
 
 # COMMAND ----------
 
-# MAGIC %md #### TODO: HOW IS THIS DONE WITH STREAMING? WITH ONLINE TABLES AND MODELSERVING?
+# MAGIC %md #### TODO: 
+# MAGIC - HOW IS THIS DONE WITH STREAMING? WITH ONLINE TABLES AND MODELSERVING?
+# MAGIC - ADD ONLINE TABLES AND MODEL SERVING
 
 # COMMAND ----------
 
